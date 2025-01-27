@@ -1,23 +1,113 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const MyApp());
+}
+
 class MyApp extends StatelessWidget {
-  void handling() {
-    print( "yes presssed" );
-  }
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    var questions = ['What\'s your favorite show?', 'What\'s your favorite movie?'];
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("UtilMate"),
-        ),
-        body: Column(
+      debugShowCheckedModeBanner: false,
+      title: 'UtilMate',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const LoginPage(),
+    );
+  }
+}
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login'),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('The Questions!'),
+            const Text(
+              'UtilMate',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Welcome Back!',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 20),
+            TextField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.emailAddress,
+            ),
+            const SizedBox(height: 15),
+            TextField(
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                labelText: 'Password',
+                border: OutlineInputBorder(),
+              ),
+              obscureText: true,
+            ),
+            const SizedBox(height: 10),
+            TextButton(
+              onPressed: () {
+                // TODO: Add forgot password functionality
+              },
+              child: const Text('Forgot Password?'),
+            ),
+            const SizedBox(height: 20),
             ElevatedButton(
-              child: Text('Answer-1'),
-              onPressed: handling,
+              onPressed: () {
+                // TODO: Add login functionality
+                final email = _emailController.text;
+                final password = _passwordController.text;
+                print('Email: $email, Password: $password');
+              },
+              child: const Text('Login'),
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Don\'t have an account?'),
+                TextButton(
+                  onPressed: () {
+                    // TODO: Add signup functionality
+                  },
+                  child: const Text('Sign Up'),
+                ),
+              ],
             ),
           ],
         ),
@@ -25,13 +115,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-void main() {
-  runApp(MyApp());
-}
-
-
-
 
 
 
