@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -89,10 +90,10 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // TODO: Add login functionality
-                final email = _emailController.text;
-                final password = _passwordController.text;
-                print('Email: $email, Password: $password');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Homepage()),
+                );
               },
               child: const Text('Login'),
             ),
@@ -103,6 +104,10 @@ class _LoginPageState extends State<LoginPage> {
                 const Text('Don\'t have an account?'),
                 TextButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Signup()),
+                    );
                     // TODO: Add signup functionality
                   },
                   child: const Text('Sign Up'),
@@ -117,12 +122,218 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 
+class Signup extends StatefulWidget {
+  const Signup({Key? key}) : super(key: key);
+
+  @override 
+  State<Signup> createState() => SignupState();
+}
+
+// class SignupState extends State<Signup> {
+//   final TextEditingController _emailController = TextEditingController();
+//   final TextEditingController _passwordController = TextEditingController();
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Signup'),
+//         centerTitle: true,
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           crossAxisAlignment: CrossAxisAlignment.stretch,
+//           children: [
+//             const Text(
+//               'UtilMate',
+//               textAlign: TextAlign.center,
+//               style: TextStyle(
+//                 fontSize: 36,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//             const SizedBox(height: 10),
+//             const Text(
+//               'Welcome to UtilMate',
+//               textAlign: TextAlign.center,
+//               style: TextStyle(
+//                 fontSize: 24,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//             const SizedBox(height: 20),
+//             TextField(
+//               controller: _emailController,
+//               decoration: const InputDecoration(
+//                 labelText: 'Email',
+//                 border: OutlineInputBorder(),
+//               ),
+//               keyboardType: TextInputType.emailAddress,
+//             ),
+//             const SizedBox(height: 15),
+//             TextField(
+//               controller: _passwordController,
+//               decoration: const InputDecoration(
+//                 labelText: 'Password',
+//                 border: OutlineInputBorder(),
+//               ),
+//               obscureText: true,
+//             ),
+
+//             const SizedBox(height: 20),
+//             TextField(
+//               controller: _emailController,
+//               decoration: const InputDecoration(
+//                 labelText: 'Name',
+//                 border: OutlineInputBorder(),
+//               ),
+//             ),
+
+//             const SizedBox(height: 20),
+//             TextField(
+//               controller: _emailController,
+//               decoration: const InputDecoration(
+//                 labelText: 'Age',
+//                 border: OutlineInputBorder(),
+//               ),
+//             ),
+
+//             const SizedBox(height: 20),
+//             TextField(
+//               controller: _emailController,
+//               decoration: const InputDecoration(
+//                 labelText: 'Country of Origin',
+//                 border: OutlineInputBorder(),
+//               ),
+//             ),
 
 
 
 
+//             const SizedBox(height: 10),
+//             TextButton(
+//               onPressed: () {
+//                 // TODO: Add forgot password functionality
+//               },
+//               child: const Text('Forgot Password?'),
+//             ),
+//             const SizedBox(height: 20),
+//             ElevatedButton(
+//               onPressed: () {
+//                 Navigator.push(
+//                   context,
+//                   MaterialPageRoute(builder: (context) => Homepage()),
+//                 );
+//               },
+//               child: const Text('Sign Up'),
+//             ),
+//             const SizedBox(height: 10),
+            
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 
+class SignupState extends State<Signup> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _countryController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Signup'),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Text(
+              'UtilMate',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Welcome to UtilMate',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 20),
+            TextField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.emailAddress,
+            ),
+            const SizedBox(height: 15),
+            TextField(
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                labelText: 'Password',
+                border: OutlineInputBorder(),
+              ),
+              obscureText: true,
+            ),
+            const SizedBox(height: 20),
+            TextField(
+              controller: _nameController,
+              decoration: const InputDecoration(
+                labelText: 'Name',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 20),
+            TextField(
+              controller: _ageController,
+              decoration: const InputDecoration(
+                labelText: 'Age',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 20),
+            TextField(
+              controller: _countryController,
+              decoration: const InputDecoration(
+                labelText: 'Country of Origin',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Homepage()),
+                );
+              },
+              child: const Text('Sign Up'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 
 
