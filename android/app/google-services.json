@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "71398304362",
+    "project_id": "utilmate-c431d",
+    "storage_bucket": "utilmate-c431d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71398304362:android:0d17aedf8cbfc8d5817813",
+        "android_client_info": {
+          "package_name": "com.example.utilmate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrkF2DZoLLDMPBcX32crCda5FNDORMBtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:utilmate/home.dart';
+import './profilebar.dart';
+
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -52,8 +55,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Container( child: Text('Home'), color: Colors.blue.shade50 ,padding: EdgeInsets.all(7), )),
-      
+      appBar: AppBar(title: Container( child: Text('Home'),decoration: BoxDecoration(color: Colors.blue.shade50, borderRadius: BorderRadius.circular(10) ), padding: EdgeInsets.all(10), )),
+      body: HomeSection(),
     );
   }
 }
@@ -66,8 +69,9 @@ class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Orders')),
-      body: const Center(child: Text('Orders Screen', style: TextStyle(fontSize: 22))),
+      appBar: AppBar(title: Container( child: Text('Orders'),decoration: BoxDecoration(color: Colors.blue.shade50, borderRadius: BorderRadius.circular(10) ), padding: EdgeInsets.all(10), )),
+
+      body: const Center(child: Text('Orders Screen', style: TextStyle(fontSize: 22)),),
     );
   }
 }
@@ -78,7 +82,8 @@ class SavedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Saved')),
+      appBar: AppBar(title: Container( child: Text('Favourites ♡'),decoration: BoxDecoration(color: Colors.blue.shade50, borderRadius: BorderRadius.circular(10) ), padding: EdgeInsets.all(10), )),
+
       body: const Center(child: Text('Saved Items', style: TextStyle(fontSize: 22))),
     );
   }
@@ -90,8 +95,9 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Profile')),
-      body: const Center(child: Text('Profile Screen', style: TextStyle(fontSize: 22))),
+      appBar: AppBar(title: Container( child: Text('User'),decoration: BoxDecoration(color: Colors.blue.shade50, borderRadius: BorderRadius.circular(10) ), padding: EdgeInsets.all(10), )),
+
+      body: ProfileBar(),
     );
   }
 }
