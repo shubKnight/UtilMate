@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:utilmate/fav.dart';
 import 'package:utilmate/home.dart';
 import './profilebar.dart';
 
@@ -84,7 +85,7 @@ class SavedScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Container( child: Text('Favourites ♡'),decoration: BoxDecoration(color: Colors.blue.shade50, borderRadius: BorderRadius.circular(10) ), padding: EdgeInsets.all(10), )),
 
-      body: const Center(child: Text('Saved Items', style: TextStyle(fontSize: 22))),
+      body: FavoritesPage(),
     );
   }
 }
