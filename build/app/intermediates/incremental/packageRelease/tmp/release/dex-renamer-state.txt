@@ -1,4 +1,4 @@
-#Fri Jan 31 04:20:51 IST 2025
+#Sat Feb 01 03:56:46 IST 2025
 base.0=/Users/shub/Developer/AppDev/UtilMate/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
