@@ -24,19 +24,20 @@ class _HomeSectionState extends State<HomeSection> {
     _loadFavorites(); // Load favorites when the widget initializes
   }
   Future<void> _loadFavorites() async {
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      QuerySnapshot snapshot = await FirebaseFirestore.instance
-          .collection('users')
-          .doc(user.uid)
-          .collection('favorites')
-          .get();
+  User? user = FirebaseAuth.instance.currentUser;
+  if (user != null) {
+    QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.uid)
+        .collection('favorites')
+        .get();
 
-      setState(() {
-        _favorites = {for (var doc in snapshot.docs) doc.id: true};
-      });
-    }
+    setState(() {
+      _favorites = {for (var doc in snapshot.docs) doc.id: true}; // doc.id is the productId
+    });
   }
+}
+
 
 
 //   void checkIfFavorite(String productId) async {
@@ -115,7 +116,7 @@ class _HomeSectionState extends State<HomeSection> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        title: const Text("Products available"),
         actions: [
           IconButton(
               icon: const Icon(Icons.add), onPressed: _showAddProductDialog),
@@ -172,9 +173,8 @@ class _HomeSectionState extends State<HomeSection> {
                                   _favorites[product.id] = false;
                                 });
                                 } else {
-                                  await favRef.set({
-                                    'productId': product.id
-                                  }); // Add to favorites
+                                  await favRef.set({'productId': product.id
+                                }); // Add to favorites
                                   setState(() {
                                   _favorites[product.id] = true;
                                 });

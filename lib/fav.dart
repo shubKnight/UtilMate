@@ -34,7 +34,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Favorites")),
+      appBar: AppBar(title: const Text("Items you've liked in past")),
       body: StreamBuilder(
         stream: _firestore.collection('users').doc(user.uid).collection('favorites').snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
