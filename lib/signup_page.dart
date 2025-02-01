@@ -36,14 +36,14 @@ class _SignupPageState extends State<SignupPage> {
       // Store user details in Firestore
       await FirebaseFirestore.instance.collection('users').doc(userCredential.user!.uid).set({
         'name': name,
-        'age': age,
+        'age': int.tryParse(age) ?? 0,
         'country': country,
         'email': email,
       });
 
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
     } catch (e) {
-      setState(() => errorMessage = 'Signup failed. Try again.');
+      setState(() => errorMessage = 'Maybe Signup failed/succeeded. Maybe give Login a try!!');
     }
   }
 
