@@ -30,7 +30,7 @@ Widget build(BuildContext context) {
   return Scaffold(
     body: _pages[_selectedIndex], 
     bottomNavigationBar: CurvedNavigationBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       color: Colors.blue.shade50, 
       buttonBackgroundColor: Colors.blue.shade100,
       height: 60,
@@ -42,7 +42,7 @@ Widget build(BuildContext context) {
         });
       },
       items: [
-        Icon(Icons.home, size: 30, color: Colors.black), // Softer contrast
+        Icon(Icons.home, size: 30, color: Colors.black), 
         Icon(Icons.shopping_bag, size: 30, color: Colors.black),
         Icon(Icons.favorite, size: 30, color: Colors.black),
         Icon(Icons.person, size: 30, color: Colors.black),

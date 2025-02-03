@@ -21,7 +21,7 @@ class _HomeSectionState extends State<HomeSection> {
   @override
   void initState() {
     super.initState();
-    _loadFavorites(); // Load favorites when the widget initializes
+    _loadFavorites(); 
   }
   Future<void> _loadFavorites() async {
   User? user = FirebaseAuth.instance.currentUser;
@@ -33,7 +33,7 @@ class _HomeSectionState extends State<HomeSection> {
         .get();
 
     setState(() {
-      _favorites = {for (var doc in snapshot.docs) doc.id: true}; // doc.id is the productId
+      _favorites = {for (var doc in snapshot.docs) doc.id: true}; // doc.id-productId
     });
   }
 }
@@ -168,7 +168,7 @@ class _HomeSectionState extends State<HomeSection> {
                                     .doc(product.id);
 
                                 if (isFavorite) {
-                                  await favRef.delete(); // Remove from favorites
+                                  await favRef.delete(); // remove from favorites
                                   setState(() {
                                   _favorites[product.id] = false;
                                 });

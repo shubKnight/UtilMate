@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../login_page.dart'; // Login page
-import '../homepage.dart'; // Homepage
+import '../login_page.dart'; 
+import '../homepage.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  // Check if user is already logged in
+  // login chekcup
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String? userEmail = prefs.getString('email');
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'UtilMate',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: startingPage, // Go to login if not signed in, else go to homepage
+      home: startingPage, // login if not signed in else homepage
     );
   }
 }

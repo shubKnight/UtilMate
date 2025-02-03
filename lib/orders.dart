@@ -14,7 +14,7 @@ class _OrdersPageState extends State<OrdersPage> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  /// Checkout function (clears orders)
+  /// Checkout for later rn-clearing order only
   void _checkout() async {
     User? user = _auth.currentUser;
     if (user == null) return;
@@ -61,7 +61,6 @@ class _OrdersPageState extends State<OrdersPage> {
             }
             var orders = snapshot.data!.docs;
 
-            /// Calculate total price without calling `setState`
             double totalPrice = orders.fold(0, (sum, order) {
               return sum + (double.tryParse(order['price'].toString()) ?? 0);
             });
@@ -92,7 +91,7 @@ class _OrdersPageState extends State<OrdersPage> {
             itemBuilder: (context, index) {
               var order = orders[index];
 
-              /// Check if order data exists before accessing it
+              
               var orderData = order.data() as Map<String, dynamic>?;
 
               if (orderData == null) {
