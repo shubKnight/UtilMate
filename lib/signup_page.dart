@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:utilmate/homepage.dart';
 import 'login_page.dart';
 
 class SignupPage extends StatefulWidget {
@@ -16,6 +17,7 @@ class _SignupPageState extends State<SignupPage> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
   final TextEditingController countryController = TextEditingController();
+
   String errorMessage = '';
 
   Future<void> signup() async {
@@ -33,7 +35,7 @@ class _SignupPageState extends State<SignupPage> {
     try {
       UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
 
-      // Store user details in Firestore
+
       await FirebaseFirestore.instance.collection('users').doc(userCredential.user!.uid).set({
         'name': name,
         'age': int.tryParse(age) ?? 0,
@@ -41,7 +43,7 @@ class _SignupPageState extends State<SignupPage> {
         'email': email,
       });
 
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homepage()));
     } catch (e) {
       setState(() => errorMessage = 'Maybe Signup failed/succeeded. Maybe give Login a try!!');
     }

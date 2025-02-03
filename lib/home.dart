@@ -200,13 +200,18 @@ class _HomeSectionState extends State<HomeSection> {
                           Text("Rating: ${product['rating']} ⭐"),
                           Text("Price: Rs. ${product['price']}"),
                           ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.pinkAccent.shade200),
+                      
                             onPressed: () => Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
                                       ProductPage(productId: product.id)),
                             ),
-                            child: const Text("Details"),
+                            child: const Text("                                      Details                                           ",style: TextStyle(color: Colors.white)),
+                            
+                            
                           ),
                         ],
                       ),

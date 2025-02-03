@@ -207,3 +207,4 @@ toggleFavorite(product.id);
       ),
     );
   }
+}
