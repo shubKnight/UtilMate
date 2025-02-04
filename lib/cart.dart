@@ -71,7 +71,12 @@ class _OrdersPageState extends State<OrdersPage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.shopping_cart_checkout),
-            onPressed: _checkout,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CheckoutPage()),
+              );
+            },
 
           ),
         ],

@@ -7,13 +7,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../lib/homepage.dart';
+import '../lib/login_page.dart';
+import '../lib/main.dart';
 
-import '../main1.dart';
-
-void main() {
+Future<void> main() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? userEmail = prefs.getString('email');
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(MyApp(startingPage: userEmail == null ? LoginPage() : Homepage()));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
