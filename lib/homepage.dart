@@ -5,6 +5,7 @@ import 'package:utilmate/orders.dart';
 import '../home.dart';
 import './profilebar.dart';
 import './orders.dart';
+import './cart.dart';
 
 
 class Homepage extends StatefulWidget {
@@ -19,7 +20,7 @@ class _HomepageState extends State<Homepage> {
 
   final List<Widget> _pages = [
     const HomeScreen(),
-    
+    const CartScreen(),
     const OrdersScreen(),
     const SavedScreen(),
     const ProfileScreen(),
@@ -43,9 +44,12 @@ Widget build(BuildContext context) {
       },
       items: [
         Icon(Icons.home, size: 30, color: Colors.black), 
+        Icon(Icons.shopping_basket, size: 30, color: Colors.black),
         Icon(Icons.shopping_bag, size: 30, color: Colors.black),
         Icon(Icons.favorite, size: 30, color: Colors.black),
         Icon(Icons.person, size: 30, color: Colors.black),
+        
+
       ],
     ),
   );
@@ -73,6 +77,19 @@ class OrdersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Container( child: Text('Orders'),decoration: BoxDecoration(color: Colors.blue.shade50, borderRadius: BorderRadius.circular(10) ), padding: EdgeInsets.all(10), )),
+
+      body:null,
+    );
+  }
+}
+
+class CartScreen extends StatelessWidget {
+  const CartScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Container( child: Text('Your Cart'),decoration: BoxDecoration(color: Colors.blue.shade50, borderRadius: BorderRadius.circular(10) ), padding: EdgeInsets.all(10), )),
 
       body: OrdersPage(),
     );

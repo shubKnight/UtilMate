@@ -83,6 +83,7 @@ class _ProductPageState extends State<ProductPage> {
                           .doc(user.uid)
                           .collection('orders')
                           .add({
+                            'productId': widget.productId, 
                         'name': product['name'],
                         'image': product['image'],
                         'price': product['price'],
